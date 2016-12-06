@@ -1,10 +1,11 @@
+
 #!/bin/sh
 # ========================================
 GITHUB_ACCOUNT=Ir12345
 WS_DIR=TestRunner
-REPO_NAME=Title_Validation_CSV
+REPO_NAME=Title_Validation_E2E
 APP_VERSION=1.1
-MAIN_CLASS=core.Selenium_csv
+MAIN_CLASS=core.Selenium
 ARGS_01=
 # ========================================
 # ========================================
@@ -34,7 +35,7 @@ git clone git@github.com:$GITHUB_ACCOUNT/$REPO_NAME.git
 
 cd ./$REPO_NAME
 
-mvn package
+mvn clean site -Dtest=AllTests -Dbuild.version="1.1"
 echo "Executing Java programm ..."
 java -cp $HOME/$WS_DIR/$REPO_NAME/target/$REPO_NAME-$APP_VERSION.jar $MAIN_CLASS $ARGS_01
 
